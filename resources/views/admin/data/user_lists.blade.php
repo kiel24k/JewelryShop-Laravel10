@@ -14,10 +14,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($userList as $list)
+                    @foreach ($userList as $listid => $list)
 
                         <tr>
-                            <td>{{ $list->id }}</td>
+                            <td>{{ $listid + 1 }}</td>
                             <td>{{ $list->email }}</td>
                             <td>{{ $list->address }}</td>
                             <td class="text-center">
