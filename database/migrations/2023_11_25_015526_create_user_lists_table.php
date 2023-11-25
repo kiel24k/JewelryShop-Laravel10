@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('user_lists', function (Blueprint $table) {
             $table->increments('id');
-            $table->foreignId('user_id');
             $table->string('email')->unique();
             $table->string('address');
             $table->string('password');

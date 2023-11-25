@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->increments('id');
-            $table->foreignId('admin_id');
             $table->string('username');
             $table->string('email')->unique();
             $table->string('password');

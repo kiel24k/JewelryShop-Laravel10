@@ -15,13 +15,14 @@
                 </thead>
                 <tbody>
                     @foreach ($userList as $list)
+
                         <tr>
-                            <td>{{ $list->user_id }}</td>
+                            <td>{{ $list->id }}</td>
                             <td>{{ $list->email }}</td>
                             <td>{{ $list->address }}</td>
                             <td class="text-center">
-                                <button class="btn btn-info">Update</button>
-                                <button class="btn btn-danger">Delete</button>
+                                <button class="btn btn-info"><a href="{{route('user.update.display',$list->id)}}" class="nav-link text-white">Update</a></button>
+                                <button class="btn btn-danger"><a href="{{route('user.delete',$list->id)}}" class="nav-link text-white">Delete</a></button>
                             </td>
                         </tr>
                     @endforeach

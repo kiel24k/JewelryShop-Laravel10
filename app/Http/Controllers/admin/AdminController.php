@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\product_list;
+use App\Models\user_list;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -13,6 +14,7 @@ class AdminController extends Controller
     {
         return view('admin.index');
     }
+    //user section
     public function userList()
     {
         $userList = DB::table('user_lists')
@@ -20,6 +22,29 @@ class AdminController extends Controller
             ->get();
         return view('admin.data.user_lists', compact('userList'));
     }
+    public function userUpdateDisplay($id)
+    {
+        $userList = user_list::findOrFail($id);
+        return view('admin.data.user_update', compact('userList'));
+    }
+    public function userUpdateData(Request $req)
+    {
+        $req->validate([
+            'email' => 'required|unique:user_lists|email',
+            'address' => 'required|string|max:255'
+        ]);
+        user_list::findOrFail($req->id)->update([
+        'email' => $req->email,
+        'address' => $req->address
+        ]);
+        return redirect()->route('user.list');
+    }
+    public function userDelete($id){
+        user_list::findOrFail($id)->delete();
+        return redirect()->route('user.list');
+    }
+
+
     public function userOrders()
     {
         return view('admin.data.user_orders');
@@ -78,7 +103,6 @@ class AdminController extends Controller
             'product_description' =>  $req->product_description,
             'product_price' =>  $req->product_price,
             'product_quantity' =>  $req->product_quantity,
-
         ]);
         return redirect()->route('user.products');
     }

@@ -29,8 +29,10 @@ route::controller(AdminController::class)->group(function () {
     route::post('product/updated','productUpdate')->name('product.update');
     route::get('admin.product.delete/{id}','productDelete')->name('product.delete');
     route::get('admin/add/product','addProductRoute')->name('add.product');
-
     route::post('admin/add/product','addProducts')->name('add.products');
+    route::get('user/update/display/{id}','userUpdateDisplay')->name('user.update.display');
+    route::post('user/update/data','userUpdateData')->name('update.data');
+    route::get('user/delete/{id}','userDelete')->name('user.delete');
 });
 route::controller(UserController::class)->group(function () {
     route::get('user/index/section','userSection')->name('user.section');
