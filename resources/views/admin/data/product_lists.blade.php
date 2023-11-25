@@ -4,8 +4,8 @@
 
     <product>
         <div class="container">
-            <button class="btn btn-outline-primary mb-4"><a href="" class="nav-link">Add Product</a></button>
-            <table class="table table-bordered">
+            <button class="btn btn-outline-primary mb-4"><a href="{{route('add.product')}}" class="nav-link">Add Product</a></button>
+            <table class="table table-bordered table-responsive">
                 <thead>
                     <tr class="text-center">
                         <th>PRODUCT IMAGE</th>
@@ -26,7 +26,7 @@
                             <td>{{ $list->product_quantity }}</td>
                             <td class="text-center">
                                 <button class="btn btn-primary"><a href="{{route('product.update.display',$list->id)}}" class="nav-link">EDIT</a></button>
-                                <button class="btn btn-danger">Update</button>
+                                <button class="btn btn-danger"><a href="{{route('product.delete',$list->id)}}" class="nav-link">Delete</a></button>
                             </td>
                         </tr>
                     @endforeach

@@ -55,6 +55,33 @@ class AdminController extends Controller
         ]);
         return redirect()->route('user.products');
     }
+    public function productDelete(Request $request)
+    {
+
+        product_list::findOrFail($request->id)->delete();
+        return redirect()->route('user.products');
+    }
+    public function addProductRoute()
+    {
+        return view('admin.data.add_product');
+    }
+    public function addProducts(Request $req)
+    {
+        $req->validate([
+            'product_name' => 'required|string|max:250',
+            'product_description' => 'required|string|max:250',
+            'product_price' => 'required|numeric',
+            'product_quantity' => 'required|numeric'
+        ]);
+        product_list::create([
+            'product_name' => $req->product_name,
+            'product_description' =>  $req->product_description,
+            'product_price' =>  $req->product_price,
+            'product_quantity' =>  $req->product_quantity,
+
+        ]);
+        return redirect()->route('user.products');
+    }
     //End of product section
     public function adminList()
     {

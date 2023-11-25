@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('product_lists', function (Blueprint $table) {
             $table->increments('id');
-            $table->foreignId('product_id');
             $table->string('product_name');
             $table->string('product_description');
             $table->float('product_price',8,2);

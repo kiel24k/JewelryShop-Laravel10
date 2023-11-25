@@ -34,7 +34,7 @@
                         @error('product_description')
                             <p class="alert alert-danger mt-2" role="alert">{{ $message }}</p>
                         @enderror
-                        <textarea name="product_description" class="form-control" rows="10" cols="50">{{ $productDisplay->product_description }}</textarea>
+                        <textarea name="product_description" class="form-control" rows="5" cols="1">{{ $productDisplay->product_description }}</textarea>
                     </div>
                     <div class="product-submit">
                         <button type="submit" class="btn btn-info">Update</button>
