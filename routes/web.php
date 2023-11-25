@@ -24,7 +24,9 @@ route::controller(AdminController::class)->group(function () {
     route::get('admin/navbar', 'adminNavbar');
     route::get('admin/order/user', 'userOrders')->name('user.orders');
     route::get('admin/user/product', 'userProducts')->name('user.products');
-    route::get('admin/user/admi.list', 'adminList')->name('admin.lists');
+    route::get('admin/user/admin', 'adminList')->name('admin.lists');
+    route::get('product/update/{id}','productUpdateDisplay')->name('product.update.display');
+    route::post('product/updated','productUpdate')->name('product.update');
 });
 route::controller(UserController::class)->group(function () {
     route::get('user/index/section','userSection')->name('user.section');
