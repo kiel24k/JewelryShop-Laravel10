@@ -1,0 +1,1 @@
+admin.authentication.register 

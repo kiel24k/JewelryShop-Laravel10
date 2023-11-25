@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\user\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,4 +19,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+route::controller(AdminController::class)->group(function () {
+    route::get('admin/user/list', 'userList')->name('user.list');
+    route::get('admin/navbar', 'adminNavbar');
+    route::get('admin/order/user', 'userOrders')->name('user.orders');
+    route::get('admin/user/product', 'userProducts')->name('user.products');
+    route::get('admin/user/admi.list', 'adminList')->name('admin.lists');
+});
+route::controller(UserController::class)->group(function () {
+    route::get('user/index/section','userSection')->name('user.section');
+});
