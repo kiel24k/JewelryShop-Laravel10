@@ -21,7 +21,7 @@
                     <td>{{ $data->email }}</td>
                     <td>
                         <button class="btn btn-info"><a href="{{route('admin.update.display',$data->id)}}" class="nav-link">Update</a></button>
-                        <button class="btn btn-danger">Delete</button>
+                        <button class="btn btn-danger"><a href="{{route('admin.delete',$data->id)}}" class="nav-link">Delete</a></button>
                     </td>
                 </tr>
                 @endforeach

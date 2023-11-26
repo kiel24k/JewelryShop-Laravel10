@@ -141,11 +141,21 @@ class AdminController extends Controller
     }
     public function adminUpdate(Request $req)
     {
+        $req->validate([
+            'username' => 'required|string|max:15',
+            'email' => 'required|unique:admins',
+            'password' => 'required|max:12'
+        ]);
         admin::findOrFail($req->id)->update([
             'username' => $req->username,
             'email' => $req->email,
             'password' => $req->password,
         ]);
+        return redirect()->route('admin.lists');
+    }
+    public function adminDelete($id)
+    {
+        admin::findOrFail($id)->delete();
         return redirect()->route('admin.lists');
     }
 }

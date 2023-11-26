@@ -37,6 +37,7 @@ route::controller(AdminController::class)->group(function () {
     route::post('admin/add','adminAdd')->name('admin.add');
     route::get('admin/update/display/{id}','adminUpdateDisplay')->name('admin.update.display');
     route::post('admin/update/data','adminUpdate')->name('admin.update');
+    route::get('admin/delete/{id}','adminDelete')->name('admin.delete');
 });
 route::controller(UserController::class)->group(function () {
     route::get('user/index/section','userSection')->name('user.section');
