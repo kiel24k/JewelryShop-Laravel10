@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin;
 use App\Models\product_list;
 use App\Models\user_list;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -34,15 +36,17 @@ class AdminController extends Controller
             'address' => 'required|string|max:255'
         ]);
         user_list::findOrFail($req->id)->update([
-        'email' => $req->email,
-        'address' => $req->address
+            'email' => $req->email,
+            'address' => $req->address
         ]);
         return redirect()->route('user.list');
     }
-    public function userDelete($id){
+    public function userDelete($id)
+    {
         user_list::findOrFail($id)->delete();
         return redirect()->route('user.list');
     }
+    //end of User Section
 
 
     public function userOrders()
@@ -107,11 +111,41 @@ class AdminController extends Controller
         return redirect()->route('user.products');
     }
     //End of product section
+
+    //Admin Section
     public function adminList()
     {
         $adminDataList = DB::table('admins')
             ->select('*')
             ->get();
         return view('admin.data.admins', compact('adminDataList'));
+    }
+    public function addAdminDisplay()
+    {
+        return view('admin.data.add_admin');
+    }
+    public function adminAdd(Request $req)
+    {
+        admin::create([
+            'username' => $req->username,
+            'email' => $req->email,
+            'password' => $req->password
+            //  'password' => Hash::make($req->password)
+        ]);
+        return redirect()->route('admin.lists');
+    }
+    public function adminUpdateDisplay($id)
+    {
+        $adminData = admin::findOrFail($id);
+        return view('admin.data.update_admin', compact('adminData'));
+    }
+    public function adminUpdate(Request $req)
+    {
+        admin::findOrFail($req->id)->update([
+            'username' => $req->username,
+            'email' => $req->email,
+            'password' => $req->password,
+        ]);
+        return redirect()->route('admin.lists');
     }
 }

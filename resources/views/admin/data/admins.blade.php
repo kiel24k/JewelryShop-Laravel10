@@ -3,7 +3,8 @@
     admin.data.admins
     <admin-data>
         <div class="container">
-            <table class="table table-bordered table-dark">
+            <button class="btn btn-outline-primary mb-3"><a href="{{route('add.admin')}}" class="nav-link">Add admin</a></button>
+            <table class="table table-bordered table-dark table-responsive">
                 <thead>
                     <tr>
                         <th>OFFICIAL ID</th>
@@ -15,11 +16,11 @@
                 <tbody>
                     @foreach ($adminDataList as $data)
                     <tr>
-                    <td>{{ $data->admin_id }}</td>
+                    <td>{{ $data->id }}</td>
                     <td>{{ $data->username }}</td>
                     <td>{{ $data->email }}</td>
                     <td>
-                        <button class="btn btn-info">Update</button>
+                        <button class="btn btn-info"><a href="{{route('admin.update.display',$data->id)}}" class="nav-link">Update</a></button>
                         <button class="btn btn-danger">Delete</button>
                     </td>
                 </tr>

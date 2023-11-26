@@ -33,6 +33,10 @@ route::controller(AdminController::class)->group(function () {
     route::get('user/update/display/{id}','userUpdateDisplay')->name('user.update.display');
     route::post('user/update/data','userUpdateData')->name('update.data');
     route::get('user/delete/{id}','userDelete')->name('user.delete');
+    route::get('admin/add/section','addAdminDisplay')->name('add.admin');
+    route::post('admin/add','adminAdd')->name('admin.add');
+    route::get('admin/update/display/{id}','adminUpdateDisplay')->name('admin.update.display');
+    route::post('admin/update/data','adminUpdate')->name('admin.update');
 });
 route::controller(UserController::class)->group(function () {
     route::get('user/index/section','userSection')->name('user.section');
