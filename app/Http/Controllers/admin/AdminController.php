@@ -86,7 +86,6 @@ class AdminController extends Controller
     }
     public function productDelete(Request $request)
     {
-
         product_list::findOrFail($request->id)->delete();
         return redirect()->route('user.products');
     }
@@ -143,7 +142,7 @@ class AdminController extends Controller
     {
         $req->validate([
             'username' => 'required|string|max:15',
-            'email' => 'required|unique:admins',
+            'email' => 'required|email',
             'password' => 'required|max:12'
         ]);
         admin::findOrFail($req->id)->update([

@@ -16,15 +16,15 @@
                     </div>
                     <div class="email">
                         @error('email')
-                        <b class="text-danger">{{ $message }}</b>
-                    @enderror
+                            <b class="text-danger">{{ $message }}</b>
+                        @enderror
                         <input type="text" name="email" placeholder="email" value="{{ $adminData->email }}"
                             class="form-control">
                     </div>
                     <div class="password">
                         @error('password')
-                        <b class="text-danger">{{ $message }}</b>
-                    @enderror
+                            <b class="text-danger">{{ $message }}</b>
+                        @enderror
                         <input type="text" name="password" placeholder="password" value="{{ $adminData->password }}"
                             class="form-control">
                     </div>
