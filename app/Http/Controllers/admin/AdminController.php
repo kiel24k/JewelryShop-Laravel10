@@ -128,7 +128,8 @@ class AdminController extends Controller
         admin::create([
             'username' => $req->username,
             'email' => $req->email,
-            'password' => $req->password
+            'password' => $req->password,
+            'type' => 'admin'
             //  'password' => Hash::make($req->password)
         ]);
         return redirect()->route('admin.lists');
