@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-route::get('/',[UserController::class,'guest'])->name('guest');
+route::get('/', [UserController::class, 'guest'])->name('guest');
 
 route::controller(AdminController::class)->group(function () {
     route::get('user/list', 'userList')->name('user.list');
@@ -40,16 +40,16 @@ route::controller(AdminController::class)->group(function () {
     route::get('admin/update/display/{id}', 'adminUpdateDisplay')->name('admin.update.display');
     route::post('admin/update/data', 'adminUpdate')->name('admin.update');
     route::get('admin/delete/{id}', 'adminDelete')->name('admin.delete');
-
-
 });
+
 route::controller(UserController::class)->group(function () {
-
-    route::get('user/index/section', 'userSection')->name('user.section');
-    route::get('user/login/page','userLoginPage')->name('user.login.page');
-    route::post('user/login','userLoginAuthentication')->name('user.login');
-    route::get('user/signup/page','userSignupSection')->name('user.signup.page');
-    route::post('user/signup','userAdminLogin')->name('user.admin.login');
-    route::get('user/logout','userLogout')->name('user.logout');
+    route::get('user/login/page', 'userLoginPage')->name('user.login.page');
+    route::post('user/login', 'userLoginAuthentication')->name('user.login');
+    route::get('user/signup/page', 'userSignupSection')->name('user.signup.page');
+    route::post('user/signup', 'userAdminLogin')->name('user.admin.login');
+    //middleware use for auth user only with data like fetch and handling auth data
+    Route::group(['middleware' => ['user_list']], function () {
+        route::get('user/index/section', 'userSection')->name('user.section');
+        route::get('user/logout', 'userLogout')->name('user.logout');
+    });
 });
-
