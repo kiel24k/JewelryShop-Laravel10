@@ -1,9 +1,12 @@
 
 
-user.partials.header
+
+
+
+
  <nav>
     <div class="nav navbar-expand">
-    <div class="container-fluid bg-info ">
+    <div class="header container-fluid">
 <ul class="navbar-nav justify-content-center">
     <li class="nav-item">
         <a href="" class="nav-link p-4">Gifts</a>
@@ -49,5 +52,28 @@ user.partials.header
     </div>
 </div>
 </nav>
+
+{{-- <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav> --}}
+
+
+
+
+
 
 

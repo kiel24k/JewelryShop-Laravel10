@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>User Index</title>
+    <link rel="icon" type="image/png" href="{{asset('iconOne.jpg')}}">
+
 
     <link rel="stylesheet" href="{{asset('node_modules/bootstrap/dist/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('user.css')}}">
 </head>
 <body>
     @include('user.partials.header')
-user index
+{{-- user index --}}
 @yield('content')
 
 <script src="{{asset('node_modules/bootstrap/dist/js/bootstrap.bundle.js')}}"></script>

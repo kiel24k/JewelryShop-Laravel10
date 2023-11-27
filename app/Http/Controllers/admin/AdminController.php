@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
+
 class AdminController extends Controller
 {
     public function adminNavbar()
@@ -128,7 +129,7 @@ class AdminController extends Controller
         admin::create([
             'username' => $req->username,
             'email' => $req->email,
-            'password' => $req->password,
+            'password' => bcrypt($req->password),
             'type' => 'admin'
             //  'password' => Hash::make($req->password)
         ]);

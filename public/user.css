@@ -1,0 +1,71 @@
+*{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+nav-section .container-fluid{
+   background-color: #7f6588;
+}
+
+nav-section .nav-item{
+    padding:20px;
+    color:white;
+}
+nav-section .buttonsearch{
+background-color: #6a4bfe;
+color:white;
+border:0px;
+}
+navbar-section .form-control{
+    margin-top:50px;
+}
+
+nav-section .nav-item{
+width:300px;
+margin:0px;
+}
+nav-section .search{
+    width:20rem;
+
+}
+nav-section .buy{
+    width:180px;
+    text-decoration:none;
+    margin: auto;
+}
+nav-section .two{
+
+
+}
+
+nav-section .buy button{
+    background-color:#97c755;
+    border:0px;
+}
+
+nav-section .buy a{
+text-decoration:none;
+color:white;
+}
+nav-section .col{
+    border:0px;
+    background-color: white;
+    border-radius:10px;
+}
+nav-section .col img{
+    text-align:center;
+
+text-align: center;
+    border-radius:15px;
+}
+nav-section .col p{
+text-align: center;
+}
+
+nav .header{
+    background-color: #7f6588;
+    position:;
+}

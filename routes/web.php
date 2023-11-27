@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\user\UserController;
+use App\Http\Middleware\userList;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,8 +49,11 @@ route::controller(UserController::class)->group(function () {
     route::get('user/signup/page', 'userSignupSection')->name('user.signup.page');
     route::post('user/signup', 'userAdminLogin')->name('user.admin.login');
     //middleware use for auth user only with data like fetch and handling auth data
-    Route::group(['middleware' => ['user_list']], function () {
+    Route::middleware([userList::class])->group (function() {
         route::get('user/index/section', 'userSection')->name('user.section');
         route::get('user/logout', 'userLogout')->name('user.logout');
     });
 });
+
+
+
