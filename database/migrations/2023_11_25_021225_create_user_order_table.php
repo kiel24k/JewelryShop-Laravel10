@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('user_order', function (Blueprint $table) {
             $table->increments('id');
             $table->foreignId('order_id');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('orders');
             $table->integer('quantity');
+            $table->integer('price');
             $table->enum('status',['pending','paid']);
             $table->timestamps();
         });

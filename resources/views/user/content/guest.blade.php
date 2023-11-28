@@ -1,4 +1,8 @@
 @extends('user.index')
 @section('content')
-user.content.guest
+<div class="guest">
+    <div class="container-fluid">
+        d
+    </div>
+</div>
 @endsection

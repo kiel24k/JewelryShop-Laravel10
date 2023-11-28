@@ -14,7 +14,7 @@
                     <div class="nav">
                         <ul class="navbar-nav text-start">
                             <li class="nav-item">
-                               <h1>Ecommerce</h1>
+                                <h1>Ecommerce</h1>
                             </li>
                             <li class="nav-item">
                                 <a href="" class="nav-link">Gifts</a>
@@ -40,127 +40,24 @@
                             aria-describedby="button-addon2">
                         <button class="btn btn-outline-secondary buttonsearch" type="button">Search</button>
                     </div>
-                    <h4 class="mt-4">Products</h4>
+                    <h4 class="prod">Products</h4>
 
                     <div class="row text-center">
+                        @foreach ($productData as $product )
                         <div class="col m-3 p-2"><img src="{{ asset('watch.jpg') }}" width="200px" class=""
-                                alt="">
-                            <p class="mt-3">Watch na maganda</p>
-                            <p class="">P1000.43</p>
-                            <div class="buy">
-                                <button class="btn btn-outline-info"><a href="" class="text-end">Place Order</a></button>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col m-3 p-2"><img src="{{ asset('watch.jpg') }}" width="200px" class=""
-                                alt="">
-                            <p class="mt-3">Watch na maganda</p>
-                            <p class="">P1000.43</p>
-                            <div class="buy">
-                                <button class="btn btn-outline-info "><a href="" class="text-end">Place Order</a></button>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="col m-3 p-2"><img src="{{ asset('watch.jpg') }}" width="200px" class=""
-                                alt="">
-                            <p class="mt-3">Watch na maganda</p>
-                            <p class="">P1000.43</p>
-                            <div class="buy">
-                                <button class="btn btn-outline-info"><a href="" class="text-end">Place Order</a></button>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col m-3 p-2"><img src="{{ asset('watch.jpg') }}" width="200px" class=" "
-                                alt="">
-                            <p class="mt-3">Watch na maganda</p>
-                            <p class="">P1000.43</p>
-                            <div class="buy">
-                                <button class="btn btn-outline-info"><a href="" class="text-end">Place Order</a></button>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col m-3 p-2"><img src="{{ asset('watch.jpg') }}" width="200px" class=" "
-                                alt="">
-                            <p class="mt-3">Watch na maganda</p>
-                            <p class="">P1000.43</p>
-                            <div class="buy">
-                                <button class="btn btn-outline-info"><a href="" class="text-end">Place Order</a></button>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col m-3 p-2"><img src="{{ asset('watch.jpg') }}" width="200px" class=" "
-                                alt="">
-                            <p class="mt-3">Watch na maganda</p>
-                            <p class="">P1000.43</p>
-                            <div class="buy">
-                                <button class="btn btn-outline-info"><a href="" class="text-end">Place Order</a></button>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col m-3 p-2"><img src="{{ asset('watch.jpg') }}" width="200px" class=" "
-                                alt="">
-                            <p class="mt-3">Watch na maganda</p>
-                            <p class="">P1000.43</p>
-                            <div class="buy">
-                                <button class="btn btn-outline-info"><a href="" class="text-end">Place Order</a></button>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col m-3 p-2"><img src="{{ asset('watch.jpg') }}" width="200px" class=" "
-                                alt="">
-                            <p class="mt-3">Watch na maganda</p>
-                            <p class="">P1000.43</p>
-                            <div class="buy">
-                                <button class="btn btn-outline-info"><a href="" class="text-end">Place Order</a></button>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col m-3 p-2"><img src="{{ asset('watch.jpg') }}" width="200px" class=" "
-                                alt="">
-                            <p class="mt-3">Watch na maganda</p>
-                            <p class="">P1000.43</p>
-                            <div class="buy">
-                                <button class="btn btn-outline-info"><a href="" class="text-end">Place Order</a></button>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col m-3 p-2"><img src="{{ asset('watch.jpg') }}" width="200px" class=" "
-                                alt="">
-                            <p class="mt-3">Watch na maganda</p>
-                            <p class="">P1000.43</p>
-                            <div class="buy">
-                                <button class="btn btn-outline-info"><a href="" class="text-end">Place Order</a></button>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col m-3 p-2"><img src="{{ asset('watch.jpg') }}" width="200px" class=" "
-                                alt="">
-                            <p class="mt-3">Watch na maganda</p>
-                            <p class="">P1000.43</p>
-                            <div class="buy">
-                                <button class="btn btn-outline-info"><a href="" class="text-end">Place Order</a></button>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col m-3 p-2"><img src="{{ asset('watch.jpg') }}" width="200px" class=" "
                             alt="">
-                        <p class="mt-3">Watch na maganda</p>
-                        <p class="">P1000.43</p>
+                      <form action="">
+                        <p class="mt-3">{{$product->product_name}}</p>
+                        <p class="mt-3">x{{$product->product_quantity}}</p>
+                        <p class="">₱{{$product->product_price}}</p>
                         <div class="buy">
-                            <button class="btn btn-outline-info"><a href="" class="text-end">Place Order</a></button>
+                            <button class="btn btn-outline-info "><a href="{{route('user.order.check',$product->id)}}" class="text-end">Check
+                                    Item</a></button>
                             </p>
+                      </form>
                         </div>
                     </div>
-                        <div class="col m-3 p-2"><img src="{{ asset('watch.jpg') }}" width="200px" class=" "
-                                alt="">
-                            <p class="mt-3">Watch na maganda</p>
-                            <p class="">P1000.43</p>
-                            <div class="buy">
-                                <button class="btn btn-outline-info"><a href="" class="text-end">Place Order</a></button>
-                                </p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

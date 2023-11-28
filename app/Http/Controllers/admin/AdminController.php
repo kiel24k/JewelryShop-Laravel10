@@ -52,7 +52,10 @@ class AdminController extends Controller
 
     public function userOrders()
     {
-        return view('admin.data.user_orders');
+        $userOrder = DB::table('user_order')
+        ->select('*')
+        ->get();
+        return view('admin.data.user_orders',compact('userOrder'));
     }
 
     //Product section
@@ -108,7 +111,7 @@ class AdminController extends Controller
             'product_price' =>  $req->product_price,
             'product_quantity' =>  $req->product_quantity,
         ]);
-        return redirect()->route('user.products');
+       
     }
     //End of product section
 

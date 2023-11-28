@@ -52,6 +52,8 @@ route::controller(UserController::class)->group(function () {
     Route::middleware([userList::class])->group (function() {
         route::get('user/index/section', 'userSection')->name('user.section');
         route::get('user/logout', 'userLogout')->name('user.logout');
+        route::get('user/order/check/{id}','userOrderCheck')->name('user.order.check');
+        route::post('place/order', 'placeOrder')->name('place.order');
     });
 });
 
