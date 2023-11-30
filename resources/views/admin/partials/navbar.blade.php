@@ -16,7 +16,7 @@
                 <a href="{{route('admin.lists')}}" class="nav-link">Admins</a>
             </li>
             <li class="nav-item p-2">
-                <a href="" class="nav-link bg-danger text-end">Logout</a>
+                <a href="{{route('admin.logout')}}" class="nav-link bg-danger text-end">Logout</a>
             </li>
             <li class="nav-item p-2">
                 <a href="{{route('user.section')}}" class="nav-link bg-success">User Page</a>

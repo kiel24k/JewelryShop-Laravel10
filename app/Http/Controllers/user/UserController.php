@@ -7,7 +7,7 @@ use App\Models\admin;
 use App\Models\product_list;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use app\Models\user_list;
+use App\Models\user_list;
 use App\Models\user_order;
 use Illuminate\Support\Facades\DB;
 
@@ -30,18 +30,14 @@ class UserController extends Controller
     }
     public function userLoginAuthentication(Request $request)
     {
-
         $cred = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
-
-
         if (Auth::guard('user_list')->attempt($cred)) {
-            $request->session()->regenerate();
+            // $request->session()->regenerate();
             return redirect()->route('user.section');
         }
-
         return back()->withErrors([
             'email' => 'The provided email do not match our records'
         ])->onlyInput('email');
@@ -59,7 +55,6 @@ class UserController extends Controller
         ]);
 
         if (Auth::guard('admin')->attempt($adminCred)) {
-
             return redirect()->route('admin.lists');
         }
         return back()->withErrors([
@@ -97,5 +92,24 @@ class UserController extends Controller
         ]);
 
         return redirect()->route('user.section');
+    }
+    public function signupUserDisplay()
+    {
+        return view('user.content.signup_user');
+    }
+    public function signupUser(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|unique:user_lists',
+            'address' => 'required|string|max:255',
+            'password' => 'required|string|min:8'
+        ]);
+       $sige = user_list::create([
+            'email' => $request->email,
+            'address' => $request->address,
+            'password' => bcrypt($request->password),
+            'type' => 'user'
+        ]);
+        return redirect()->route('user.login.page');
     }
 }

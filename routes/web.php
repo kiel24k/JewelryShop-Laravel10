@@ -41,6 +41,7 @@ route::controller(AdminController::class)->group(function () {
     route::get('admin/update/display/{id}', 'adminUpdateDisplay')->name('admin.update.display');
     route::post('admin/update/data', 'adminUpdate')->name('admin.update');
     route::get('admin/delete/{id}', 'adminDelete')->name('admin.delete');
+    route::get('admin/logout', 'adminLogout')->name('admin.logout');
 });
 
 route::controller(UserController::class)->group(function () {
@@ -48,14 +49,14 @@ route::controller(UserController::class)->group(function () {
     route::post('user/login', 'userLoginAuthentication')->name('user.login');
     route::get('user/signup/page', 'userSignupSection')->name('user.signup.page');
     route::post('user/signup', 'userAdminLogin')->name('user.admin.login');
+    route::get('signup/main/display', 'signupUserDisplay')->name('signup.user.display');
+    route::post('signup','signupUser')->name('signup.user');
+
     //middleware use for auth user only with data like fetch and handling auth data
-    Route::middleware([userList::class])->group (function() {
+    Route::middleware([userList::class])->group(function () {
         route::get('user/index/section', 'userSection')->name('user.section');
         route::get('user/logout', 'userLogout')->name('user.logout');
-        route::get('user/order/check/{id}','userOrderCheck')->name('user.order.check');
+        route::get('user/order/check/{id}', 'userOrderCheck')->name('user.order.check');
         route::post('place/order', 'placeOrder')->name('place.order');
     });
 });
-
-
-

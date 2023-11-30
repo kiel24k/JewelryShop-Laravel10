@@ -7,6 +7,7 @@ use App\Models\admin;
 use App\Models\product_list;
 use App\Models\user_list;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -83,7 +84,7 @@ class AdminController extends Controller
         product_list::findOrFail($request->id)->update([
             'product_name' => $request->product_name,
             'product_price' => $request->product_price,
-            'product_quanity' => $request->product_quantity,
+            'product_quantity' => $request->product_quantity,
             'product_description' => $request->product_description,
         ]);
         return redirect()->route('user.products');
@@ -111,7 +112,8 @@ class AdminController extends Controller
             'product_price' =>  $req->product_price,
             'product_quantity' =>  $req->product_quantity,
         ]);
-       
+        return redirect()->route('user.products');
+
     }
     //End of product section
 
@@ -162,4 +164,10 @@ class AdminController extends Controller
         admin::findOrFail($id)->delete();
         return redirect()->route('admin.lists');
     }
+   public function adminLogout(Request $request){
+    Auth::logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+    return redirect()->route('user.login.page');
+   }
 }

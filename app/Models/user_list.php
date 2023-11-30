@@ -13,11 +13,8 @@ class user_list extends Authenticatable
     protected $fillable = [
         'email',
         'address',
-        'type',
         'password',
+        'type'
     ];
     public $timestamps = false;
-    protected $hidden =[
-
-    ];
 }

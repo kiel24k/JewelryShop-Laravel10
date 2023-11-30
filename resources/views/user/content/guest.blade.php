@@ -2,7 +2,7 @@
 @section('content')
 <div class="guest">
     <div class="container-fluid">
-        d
+        aujdgsffdsddapatddsdsdsdasd ano ba dapat kong gaswin hahaha
     </div>
 </div>
 @endsection
