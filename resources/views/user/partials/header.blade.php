@@ -28,7 +28,7 @@
                     <li class="nav-item p-4 signup">
                         <a class="dropdown-toggle nav-link" href="" role="button" id="dropdownMenuLink"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                           <b> Sign in</b>
+                           <b>Sign in/Log in</b>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <li><a class="dropdown-item" href="{{ route('user.login.page') }}"><b>Login</b></a></li>
